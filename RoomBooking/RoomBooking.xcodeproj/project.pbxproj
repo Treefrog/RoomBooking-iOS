@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		016459F91FC355D800C38078 /* alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016459F81FC355D800C38078 /* alerts.swift */; };
+		0179701A1FC3B0A900C991F0 /* Aller_LtIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 017970181FC3AFCD00C991F0 /* Aller_LtIt.ttf */; };
+		0179701B1FC3B0A900C991F0 /* Aller_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 017970191FC3AFCD00C991F0 /* Aller_Rg.ttf */; };
 		01D3A5101FBF458200EB33C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A50F1FBF458200EB33C6 /* AppDelegate.swift */; };
-		01D3A5121FBF458200EB33C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A5111FBF458200EB33C6 /* ViewController.swift */; };
+		01D3A5121FBF458200EB33C6 /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A5111FBF458200EB33C6 /* mainVC.swift */; };
 		01D3A5151FBF458200EB33C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D3A5131FBF458200EB33C6 /* Main.storyboard */; };
 		01D3A5181FBF458200EB33C6 /* RoomBooking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A5161FBF458200EB33C6 /* RoomBooking.xcdatamodeld */; };
 		01D3A51A1FBF458200EB33C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01D3A5191FBF458200EB33C6 /* Assets.xcassets */; };
@@ -21,7 +23,7 @@
 		01D3A5451FBF749900EB33C6 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A5441FBF749900EB33C6 /* extensions.swift */; };
 		01D3A5471FBF7C0900EB33C6 /* apiLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A5461FBF7C0900EB33C6 /* apiLayer.swift */; };
 		01D3A54B1FBF7DAF00EB33C6 /* appSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A54A1FBF7DAF00EB33C6 /* appSession.swift */; };
-		01D3A54D1FBF803700EB33C6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A54C1FBF803700EB33C6 /* Event.swift */; };
+		01D3A54D1FBF803700EB33C6 /* event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3A54C1FBF803700EB33C6 /* event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +45,11 @@
 
 /* Begin PBXFileReference section */
 		016459F81FC355D800C38078 /* alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alerts.swift; sourceTree = "<group>"; };
+		017970181FC3AFCD00C991F0 /* Aller_LtIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Aller_LtIt.ttf; path = ../../../FindAFrog/collectionView/Aller_LtIt.ttf; sourceTree = "<group>"; };
+		017970191FC3AFCD00C991F0 /* Aller_Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Aller_Rg.ttf; path = ../../../FindAFrog/collectionView/Aller_Rg.ttf; sourceTree = "<group>"; };
 		01D3A50C1FBF458200EB33C6 /* RoomBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D3A50F1FBF458200EB33C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01D3A5111FBF458200EB33C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01D3A5111FBF458200EB33C6 /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
 		01D3A5141FBF458200EB33C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01D3A5171FBF458200EB33C6 /* RoomBooking.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoomBooking.xcdatamodel; sourceTree = "<group>"; };
 		01D3A5191FBF458200EB33C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		01D3A5441FBF749900EB33C6 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		01D3A5461FBF7C0900EB33C6 /* apiLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiLayer.swift; sourceTree = "<group>"; };
 		01D3A54A1FBF7DAF00EB33C6 /* appSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appSession.swift; sourceTree = "<group>"; };
-		01D3A54C1FBF803700EB33C6 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		01D3A54C1FBF803700EB33C6 /* event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +117,14 @@
 		01D3A50E1FBF458200EB33C6 /* RoomBooking */ = {
 			isa = PBXGroup;
 			children = (
+				017970181FC3AFCD00C991F0 /* Aller_LtIt.ttf */,
+				017970191FC3AFCD00C991F0 /* Aller_Rg.ttf */,
 				01D3A50F1FBF458200EB33C6 /* AppDelegate.swift */,
-				01D3A5111FBF458200EB33C6 /* ViewController.swift */,
-				01D3A5441FBF749900EB33C6 /* extensions.swift */,
 				01D3A5461FBF7C0900EB33C6 /* apiLayer.swift */,
+				01D3A5111FBF458200EB33C6 /* mainVC.swift */,
+				01D3A5441FBF749900EB33C6 /* extensions.swift */,
 				016459F81FC355D800C38078 /* alerts.swift */,
-				01D3A54C1FBF803700EB33C6 /* Event.swift */,
+				01D3A54C1FBF803700EB33C6 /* event.swift */,
 				01D3A54A1FBF7DAF00EB33C6 /* appSession.swift */,
 				01D3A5421FBF6AE400EB33C6 /* colours.swift */,
 				01D3A5131FBF458200EB33C6 /* Main.storyboard */,
@@ -256,6 +262,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0179701A1FC3B0A900C991F0 /* Aller_LtIt.ttf in Resources */,
+				0179701B1FC3B0A900C991F0 /* Aller_Rg.ttf in Resources */,
 				01D3A51D1FBF458200EB33C6 /* LaunchScreen.storyboard in Resources */,
 				01D3A51A1FBF458200EB33C6 /* Assets.xcassets in Resources */,
 				01D3A5151FBF458200EB33C6 /* Main.storyboard in Resources */,
@@ -283,8 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01D3A5121FBF458200EB33C6 /* ViewController.swift in Sources */,
-				01D3A54D1FBF803700EB33C6 /* Event.swift in Sources */,
+				01D3A5121FBF458200EB33C6 /* mainVC.swift in Sources */,
+				01D3A54D1FBF803700EB33C6 /* event.swift in Sources */,
 				016459F91FC355D800C38078 /* alerts.swift in Sources */,
 				01D3A5411FBF576500EB33C6 /* bookingCell.swift in Sources */,
 				01D3A5431FBF6AE400EB33C6 /* colours.swift in Sources */,

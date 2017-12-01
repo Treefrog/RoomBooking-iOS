@@ -11,14 +11,17 @@ import Foundation
 class APILayer {
     static let shared = APILayer()
     
-    func getEvents() -> () {
-        let data = [[["Name":"Support Schedule", "Time":["Start":"11:00","End":"13:00"], "Attendees":"Russell\nGuest"],["Name":"Facilities Details", "Time":["Start":"13:00","End":"13:30"], "Attendees":""],["Name":"E-Commerice via Skype", "Time":["Start":"16:30","End":"17:00"], "Attendees":""]],[["Name":"ZPod", "Time":["Start":"14:00","End":"15:00"], "Attendees":""]]]
+    func getEvents() -> [[Event]] {
+        let data = [[["Name":"Support Schedule", "Time":["Start":"11:00","End":"13:00"], "Attendees":"Russell\nGuest"],["Name":"Facilities Details", "Time":["Start":"13:00","End":"13:30"], "Attendees":""],["Name":"E-Commerice via Skype", "Time":["Start":"15:30","End":"17:00"], "Attendees":""]],[["Name":"ZPod", "Time":["Start":"14:00","End":"15:00"], "Attendees":""]]]
         
         let todaysEvents = setEvents(inputData: data[0])
         let upcommingEvents = setEvents(inputData: data[1])
         
-        appSession.shared.events.append(todaysEvents)
-        appSession.shared.events.append(upcommingEvents)
+        var returnedEvents = [[Event]]()
+        returnedEvents.append(todaysEvents)
+        returnedEvents.append(upcommingEvents)
+        
+        return returnedEvents
         
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func dispatchMain(closure: @escaping ()->()) {
     DispatchQueue.main.async {
@@ -45,5 +46,28 @@ extension String {
         let newDate = gregorian.date(from: components)!
         
         return newDate
+    }
+}
+
+extension UIViewController {
+    
+    func slackRequest(message: String){
+        
+        if let url = URL(string: "https://hooks.slack.com/services/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"){
+            let request = NSMutableURLRequest(url: url as URL)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            let params = ["text" : "\(message)"] as Dictionary<String, String>
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+            } catch {
+                print("Error")
+            }
+            let session = URLSession.shared
+            session.dataTask(with: request as URLRequest, completionHandler: { (returnData, response, error) -> Void in
+                //print(response)
+            }).resume()
+        }
     }
 }

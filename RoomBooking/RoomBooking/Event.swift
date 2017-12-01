@@ -31,4 +31,12 @@ struct Event {
         }
         return false
     }
+    
+    func isPast() -> Bool {
+        if Date() >= end {
+            return true
+        }
+        return false
+    }
 }
+
