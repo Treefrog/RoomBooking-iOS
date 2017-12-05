@@ -12,14 +12,36 @@ class APILayer {
     static let shared = APILayer()
     
     func getEvents() -> [[Event]] {
-        let data = [[["Name":"Support Schedule", "Time":["Start":"11:00","End":"13:00"], "Attendees":"Russell\nGuest"],["Name":"Facilities Details", "Time":["Start":"13:00","End":"13:30"], "Attendees":""],["Name":"E-Commerice via Skype", "Time":["Start":"15:30","End":"17:00"], "Attendees":""]],[["Name":"ZPod", "Time":["Start":"14:00","End":"15:00"], "Attendees":""]]]
+        let json = """
+            [{
+            "name": "Support Schedule",
+            "startString": "11:00",
+            "endString": "13:00",
+            "attendees": "Russell Guests"
+            },{
+            "name": "Facilities Details",
+            "startString": "13:00",
+            "endString": "13:30",
+            "attendees": ""
+            },{
+            "name": "E-Commerice via Skype",
+            "startString": "15:30",
+            "endString": "17:00",
+            "attendees": ""
+            },{
+            "name": "ZPod",
+            "startString": "14:00",
+            "endString": "15:00",
+            "attendees": ""
+            }]
+            """.data(using: .utf8)! // our native (JSON) data
         
-        let todaysEvents = setEvents(inputData: data[0])
-        let upcommingEvents = setEvents(inputData: data[1])
+        guard let myStructArray = try? JSONDecoder().decode([Event].self, from: json) else {
+            return [[Event]]()
+        }
         
         var returnedEvents = [[Event]]()
-        returnedEvents.append(todaysEvents)
-        returnedEvents.append(upcommingEvents)
+        returnedEvents.append(myStructArray)
         
         return returnedEvents
         
@@ -36,7 +58,7 @@ class APILayer {
                     return [Event]()
             }
             
-            let anEvent = Event(name: givenName, start: givenStart, end: givenEnd, attendies: givenAttendies)
+            let anEvent = Event(name: givenName, start: givenStart, end: givenEnd, attendees: givenAttendies)
             
             returnEvents.append(anEvent)
         }

@@ -170,7 +170,7 @@ class mainVC: UIViewController {
         if checkInUse(date) || inUse {
             self.alertImproptuBookingFailed()
         } else {
-            let newEvent = Event(name: "Impromptu Event", start: Date().toStringFromInput(), end: date.toStringFromInput(), attendies: "")
+            let newEvent = Event(name: "Impromptu Event", start: Date().toStringFromInput(), end: date.toStringFromInput(), attendees: "")
             slackRequest(message: "\(by) has made a \(length) improptu booking of the Think Tank")
             events[0].insert(newEvent, at: 0)
             self.updateScreen()
@@ -178,7 +178,7 @@ class mainVC: UIViewController {
     }
     
     func addMeeting(until:Date, by: String) {
-        let newEvent = Event(name: "Impromptu Event", start: Date().toStringFromInput(), end: until.toStringFromInput(), attendies: "")
+        let newEvent = Event(name: "Impromptu Event", start: Date().toStringFromInput(), end: until.toStringFromInput(), attendees: "")
         slackRequest(message: "\(by) has made an improptu booking of the Think Tank until \(until.toString())")
         events[0].insert(newEvent, at: 0)
         self.updateScreen()
@@ -233,7 +233,7 @@ extension mainVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func convertsToTimeRangeString(event:Event) -> String {
-        return "\(event.startString) - \(event.endString)"
+        return "\(event.start.toString()) - \(event.end.toString())"
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -253,7 +253,7 @@ extension mainVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lblPopupEventName.text = events[indexPath.section][indexPath.row].name
         lblPopupEventTime.text = convertsToTimeRangeString(event: events[indexPath.section][indexPath.row])
-        txtPopupEventAttendees.text = events[indexPath.section][indexPath.row].attendies
+        txtPopupEventAttendees.text = events[indexPath.section][indexPath.row].attendees
         currentlySelectedEvent = indexPath.row
         if indexPath.section == 0 {
             btnPopupDelete.isHidden = false

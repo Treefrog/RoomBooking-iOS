@@ -10,19 +10,25 @@ import Foundation
 
 struct Event {
     var name:String
-    var start:Date
     var startString:String
-    var end:Date
     var endString:String
-    var attendies:String
+    var attendees:String
+    var start:Date {
+        get {
+            return startString.toDate()
+        }
+    }
+    var end:Date {
+        get {
+            return endString.toDate()
+        }
+    }
     
-    init(name:String, start:String, end:String, attendies:String) {
+    init(name:String, start:String, end:String, attendees:String) {
         self.name = name
-        self.start = start.toDate()
-        self.startString = self.start.toString()
-        self.end = end.toDate()
-        self.endString = self.end.toString()
-        self.attendies = attendies
+        self.startString = start
+        self.endString = end
+        self.attendees = attendees
     }
     
     func isActive(at:Date = Date()) -> Bool {
@@ -40,3 +46,21 @@ struct Event {
     }
 }
 
+extension Event: Decodable {
+    enum MyStructKeys: String, CodingKey {
+        case name = "name"
+        case startString = "startString"
+        case endString = "endString"
+        case attendees = "attendees"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: MyStructKeys.self)
+        let name: String = try container.decode(String.self, forKey: .name)
+        let start: String = try container.decode(String.self, forKey: .startString)
+        let end: String = try container.decode(String.self, forKey: .endString)
+        let attendees: String = try container.decode(String.self, forKey: .attendees)
+        
+        self.init(name: name, start: start, end: end, attendees: attendees)
+    }
+}
